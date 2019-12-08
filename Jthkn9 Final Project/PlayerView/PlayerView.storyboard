@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u8D-2E-NX7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player View Controller-->
+        <scene sceneID="5FF-C1-WP4">
+            <objects>
+                <viewController id="u8D-2E-NX7" customClass="PlayerViewController" customModule="Jthkn9_s_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wli-CG-9fc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FirstName LastName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJw-no-6Hb">
+                                <rect key="frame" x="0.0" y="40" width="375" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stats Will Be in a table view here later..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEo-I7-Zb9">
+                                <rect key="frame" x="0.0" y="87.5" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvY-lb-GgX">
+                                <rect key="frame" x="0.0" y="128.5" width="375" height="30"/>
+                                <state key="normal" title="Delete Player"/>
+                                <connections>
+                                    <action selector="DeleteButton:" destination="u8D-2E-NX7" eventType="touchUpInside" id="1I0-eM-6Xu"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dj1-q5-xQI">
+                                <rect key="frame" x="0.0" y="178.5" width="375" height="488.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="top" secondItem="vvY-lb-GgX" secondAttribute="bottom" constant="20" id="1qD-98-w3o"/>
+                            <constraint firstItem="JJw-no-6Hb" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="6Wi-sj-9uK"/>
+                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="JJw-no-6Hb" secondAttribute="trailing" id="6ac-7t-Ut1"/>
+                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="VEo-I7-Zb9" secondAttribute="trailing" id="QBH-c3-pE6"/>
+                            <constraint firstItem="VEo-I7-Zb9" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="RlX-7U-XJE"/>
+                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="vvY-lb-GgX" secondAttribute="trailing" id="XdU-dB-wlT"/>
+                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="trailing" secondItem="9rc-xw-m80" secondAttribute="trailing" id="hIJ-B0-b60"/>
+                            <constraint firstItem="vvY-lb-GgX" firstAttribute="top" secondItem="VEo-I7-Zb9" secondAttribute="bottom" constant="20" id="hvh-Zs-AiR"/>
+                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="m5N-7M-ctG"/>
+                            <constraint firstItem="vvY-lb-GgX" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="qRF-hQ-hoU"/>
+                            <constraint firstItem="VEo-I7-Zb9" firstAttribute="top" secondItem="JJw-no-6Hb" secondAttribute="bottom" constant="20" id="ry1-Wc-GTu"/>
+                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="bottom" secondItem="9rc-xw-m80" secondAttribute="bottom" id="vNF-Ic-9pU"/>
+                            <constraint firstItem="JJw-no-6Hb" firstAttribute="top" secondItem="9rc-xw-m80" secondAttribute="top" constant="20" id="y23-Il-2UQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9rc-xw-m80"/>
+                    </view>
+                    <connections>
+                        <outlet property="NameLabel" destination="JJw-no-6Hb" id="MZz-Xg-9hF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1v-8R-GiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="46.326836581709152"/>
+        </scene>
+    </scenes>
+</document>

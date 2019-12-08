@@ -1,0 +1,23 @@
+Notes December 2019: TODO
+1. App needs to respect MVC first with the delegation.
+2. File persistance to core data
+3. Messageing feature
+4. News feature
+5.
+
+
+
+
+
+Notes August 2019:
+1. App uses MVC: My app keeps the viewController logic separate from the model and vice versa for all of the vc's and models.
+2. Use autolayout: I have used stack views and table views and there are no warnings or errors.
+3. Use Multiple ViewControllers: I have 6 viewControllers not including my custom table view cells.
+4. Use a Table View: I have used 3 table views and i have a stub table view for playerView's stats, I am going to do this at a later date hence it is not a part of my submission.
+5. Use at least 3 different UIKit components: I used a UIPickerView in the PlayerCreation.storyboard, an UIAlert in the importbutton inside the TeamList viewcontroller. UItabbar is used in the TabBar.Storyboard and is used in the whole app.
+6. Indermediate/advanced feature or framework: I mocked a Get request with my json retrieved from the file finalgetjson.swift. I also edited the filepersistence greatly to include ways to delete my teams and players as well as a function to delete all files in persistence saved by this app. with Professor Hommert's help I also implemented delegation throughout the app that allows it to refresh across the tab bar.
+
+Weird things that work but should eventually be refactored:
+1. because the mock data in my json does not map to a uuid yet there are 3 structs for team and player in order to exchange the difference between the two. this is a legacy problem because i learned about codingKeys after i had done this.
+2. the uipickerView for team select in the PlayerCreation model does not work with my simulator in my hackintosh perfectly. it may have to be changed or altered on an actual mac.
+3. the delegation should be put in the model but it is in the viewcontrollers right now for convienience.

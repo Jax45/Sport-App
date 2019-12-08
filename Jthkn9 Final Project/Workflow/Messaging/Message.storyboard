@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sC3-7x-DDP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Messages-->
+        <scene sceneID="oTH-4Z-RHY">
+            <objects>
+                <navigationController id="sC3-7x-DDP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" id="8Db-Jp-CS1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oRF-uy-iVr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="cPh-RE-Zry" kind="relationship" relationship="rootViewController" id="Owl-en-bGt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dsl-F9-XNK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="163"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="i4l-HQ-iXo">
+            <objects>
+                <viewController id="cPh-RE-Zry" customClass="ProfileViewController" customModule="Jthkn9_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4TA-Kq-jgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDz-Hd-lOj">
+                                <rect key="frame" x="131" y="561" width="155" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Go To Group Chat"/>
+                                <connections>
+                                    <segue destination="rB9-Cl-hpp" kind="show" id="EdS-U7-OxN"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEt-ln-c5C">
+                                <rect key="frame" x="0.0" y="138" width="414" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnE-rQ-ozo">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Leave Blank For Random Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xig-RN-1BY">
+                                        <rect key="frame" x="104.5" y="0.0" width="309.5" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6OM-i8-r12">
+                                <rect key="frame" x="10" y="222" width="394" height="111.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Profile Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKp-cr-IBp">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="xKo-vd-RsR">
+                                        <rect key="frame" x="-2" y="21.5" width="398" height="31"/>
+                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Dsh-1u-tBU">
+                                        <rect key="frame" x="-2" y="51.5" width="398" height="31"/>
+                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xxk-vz-KoW">
+                                        <rect key="frame" x="-2" y="81.5" width="398" height="31"/>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QEt-ln-c5C" firstAttribute="top" secondItem="oa7-An-NnA" secondAttribute="top" constant="50" id="9b1-6c-Hfw"/>
+                            <constraint firstItem="oa7-An-NnA" firstAttribute="trailing" secondItem="QEt-ln-c5C" secondAttribute="trailing" id="J2r-Vh-rlG"/>
+                            <constraint firstAttribute="trailing" secondItem="6OM-i8-r12" secondAttribute="trailing" constant="10" id="UTd-jf-f7w"/>
+                            <constraint firstItem="6OM-i8-r12" firstAttribute="top" secondItem="QEt-ln-c5C" secondAttribute="bottom" constant="50" id="ZbQ-tb-wN4"/>
+                            <constraint firstItem="6OM-i8-r12" firstAttribute="leading" secondItem="oa7-An-NnA" secondAttribute="leading" constant="10" id="n0p-UV-xh2"/>
+                            <constraint firstItem="QEt-ln-c5C" firstAttribute="leading" secondItem="oa7-An-NnA" secondAttribute="leading" id="pWW-bv-C8D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oa7-An-NnA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qTU-e2-Ash"/>
+                    <connections>
+                        <outlet property="BlueSlider" destination="Xxk-vz-KoW" id="rHm-Bq-87S"/>
+                        <outlet property="GreenSlider" destination="Dsh-1u-tBU" id="nVy-xg-qBM"/>
+                        <outlet property="NameTextField" destination="xig-RN-1BY" id="jcs-pG-CTZ"/>
+                        <outlet property="RedSlider" destination="xKo-vd-RsR" id="Z9o-Fi-q1S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttT-Vz-LVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="163"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="4ve-WL-7yu">
+            <objects>
+                <viewController title="Chat" id="rB9-Cl-hpp" customClass="MessageViewController" customModule="Jthkn9_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ehd-IC-twM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Sf2-VB-M9a"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kzl-mn-xwG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cLR-SK-rln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="163"/>
+        </scene>
+    </scenes>
+</document>
