@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TeamModelDelegate: class {
+protocol PlayerCreationDelegate: class {
     func save(player: Player)
 }
 
@@ -16,9 +16,9 @@ final class PlayerCreationModel {
     //key is the TeamId, and value is the name of the team.
     private(set) var teams: [(Int, String)]
     
-    private weak var delegate: TeamModelDelegate?
+    private weak var delegate: PlayerCreationDelegate?
     
-    init(teams: [(Int, String)], delegate: TeamModelDelegate?) {
+    init(teams: [(Int, String)], delegate: PlayerCreationDelegate?) {
         //self.player = player
         self.delegate = delegate
         self.teams = teams

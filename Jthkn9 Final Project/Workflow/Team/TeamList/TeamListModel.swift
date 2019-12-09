@@ -17,6 +17,7 @@ protocol TeamListModelDelegate: class {
 final class TeamListModel{
     private var teamService: TeamService!
     private var teams: [Team] = []
+    private var teamsFromScaledrone: [Team] = []
     let rowHeight: CGFloat = 64.0
     var count: Int {return teams.count}
     private var delegate: TeamListModelDelegate?
@@ -25,61 +26,58 @@ final class TeamListModel{
     init(persistence: AppPersistenceInterface?, teams: [Team]) {
         self.teams = teams
         self.persistence = persistence
-        teamService = TeamService(onRecievedMessage: {
-          [weak self] json in
-          print(json)
-            self?.teamsFromJson = try! JSONDecoder().decode([TeamFromJson].self, from: json.data(using: .utf8)!)
+        teamService = TeamService(onRecievedMessage: {[weak self] json in
+        //print(json)
+            do{
+            self?.teamsFromScaledrone = try JSONDecoder().decode([Team].self, from: json.data(using: .utf8)!)
+            }catch {
+                print("could not parse json")
+            }
         })
+        teamService.connect()
     }
 }
 
 extension TeamListModel {
-    
+    func setDelegate(delegate: TeamListModelDelegate){
+        self.delegate = delegate
+    }
+    func getAllTeams() -> [Team]{
+        return teams
+    }
     func send(msg: String){
+//        teamService = TeamService(onRecievedMessage: {json in print("Sending data")})
+//        teamService.connect()
         teamService.sendMessage(msg)
+        //refresh the message history
+        teamService.disconnect()
+        teamService.connect()
     }
     
     func importTeamsFromJson(){
-        //var teamsFromJson: [TeamFromJson] = []
-        //var jsonString = ""
-        //teamService.connect()
-//        teamService = TeamService(onRecievedMessage: {
-//          [weak self] json in
-//          print(json)
-//            teamsFromJson = try! JSONDecoder().decode([TeamFromJson].self, from: json.data(using: .utf8)!)
-//        })
+        teams = teamsFromScaledrone
+                //clear old persistence and replace it with new data from json
+                self.persistence?.deleteAllData()
 
-        //teamService.connect()
-
+                for team in self.teams {
+                    //get player id's
+                    var playerList: [UUID] = []
+                    for playerObject in team.roster {
+                        
+                        var partsOfName = playerObject.name.components(separatedBy: " ")
+                        let first = partsOfName.removeFirst()
+                        let last = partsOfName.joined(separator: " ")
+                        
+                        self.persistence?.savePlayer(player: PlayerForPersistance(id: playerObject.playerId, firstName: first, lastName: last, teamId: playerObject.teamId, stats: playerObject.seasons))
+                        playerList.append(playerObject.playerId)
+                    }
+                    self.persistence?.saveTeam(team: TeamForPersistance(id: team.id, logo: team.logo, teamName: team.teamName, roster: playerList, wins: team.wins, losses: team.losses))
+                }
+                print("team set from json")
+                self.delegate?.dataRefreshed()
+            
         
         
-        //convert teamsfrom json to teams
-        //delete current teams
-        teams.removeAll()
-        for jsonTeam in teamsFromJson {
-            var jsonRoster: [Player] = []
-            for jsonPlayer in jsonTeam.roster{
-                jsonRoster.append(Player(playerId: UUID(), teamId: jsonPlayer.teamId, name: jsonPlayer.name, seasons: jsonPlayer.seasons))
-            }
-            teams.append(Team(id: jsonTeam.id, logo: jsonTeam.logo, teamName: jsonTeam.teamName, roster: jsonRoster, wins: jsonTeam.wins, losses: jsonTeam.losses))
-        }
-        //clear old persistence and replace it with new data from json
-        persistence?.deleteAllData()
-
-        for team in teams {
-            //get player id's
-            var playerList: [UUID] = []
-            for playerObject in team.roster {
-                
-                var partsOfName = playerObject.name.components(separatedBy: " ")
-                let first = partsOfName.removeFirst()
-                let last = partsOfName.joined(separator: " ")
-                
-                persistence?.savePlayer(player: PlayerForPersistance(id: playerObject.playerId, firstName: first, lastName: last, teamId: playerObject.teamId, stats: playerObject.seasons))
-                playerList.append(playerObject.playerId)
-            }
-            persistence?.saveTeam(team: TeamForPersistance(id: team.id, logo: team.logo, teamName: team.teamName, roster: playerList, wins: team.wins, losses: team.losses))
-        }
     }
     
     func importTeamsFromPersistance() {

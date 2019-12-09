@@ -26,7 +26,7 @@ class ChatService {
 extension ChatService: ScaledroneDelegate {
     func scaledroneDidConnect(scaledrone: Scaledrone, error: Error?) {
         print("Connected to Scaledrone")
-        room = scaledrone.subscribe(roomName: "observable-GroupChat",messageHistory: 50)
+        room = scaledrone.subscribe(roomName: "observable-GroupChat",messageHistory: 1)
         room?.delegate = self
     }
     

@@ -30,32 +30,32 @@ final class TabBarModel {
         
         if teams.isEmpty || players.isEmpty {
         
-        //use json
-        let teamsFromJson = getTeamsFromJson()
-        let playersFromJson = getPlayersFromJson(teams: teamsFromJson)
-        
-        //save teams to persistence
-        //get the roster of id's
-        for team in teamsFromJson {
-        var playerRoster: [UUID] = []
-        for player in team.roster {
-        playerRoster.append(player.playerId)
-        }
-        
-            appPersistence!.saveTeam(team: TeamForPersistance(id: team.id, logo: team.logo, teamName: team.teamName, roster: playerRoster, wins: team.wins, losses: team.losses))
-        }
-        //save players
-        for player in playersFromJson {
-        var partsOfName = player.name.components(separatedBy: " ")
-        
-        let first = partsOfName.removeFirst()
-        let last = partsOfName.joined(separator: " ")
-        
+            //use json
+            let teamsFromJson = getTeamsFromJson()
+            let playersFromJson = getPlayersFromJson(teams: teamsFromJson)
+            
+            //save teams to persistence
+            //get the roster of id's
+            for team in teamsFromJson {
+                var playerRoster: [UUID] = []
+                for player in team.roster {
+                    playerRoster.append(player.playerId)
+                }
+            
+                appPersistence!.saveTeam(team: TeamForPersistance(id: team.id, logo: team.logo, teamName: team.teamName, roster: playerRoster, wins: team.wins, losses: team.losses))
+            }
+            //save players
+            for player in playersFromJson {
+            var partsOfName = player.name.components(separatedBy: " ")
+            
+            let first = partsOfName.removeFirst()
+            let last = partsOfName.joined(separator: " ")
+            
             appPersistence!.savePlayer(player: PlayerForPersistance(id: player.playerId, firstName: first, lastName: last, teamId: player.teamId, stats: player.seasons))
-        }
+            }
         
-            self.teams = teamsFromJson
-            self.players = playersFromJson
+            self.teams = []//teamsFromJson
+            self.players = [] //playersFromJson
         } else {
         //convert players and teams
             //let teamsAndPlayers = convertTeamsAndPlayers(teamData: teams, playerData: players, appPersistence: appPersistence)

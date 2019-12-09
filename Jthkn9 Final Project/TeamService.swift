@@ -17,6 +17,9 @@ class TeamService {
   func connect() {
     scaledrone.connect()
   }
+  func disconnect() {
+    scaledrone.disconnect()
+  }
   func sendMessage(_ message: String) {
     room?.publish(message: message)
   }
@@ -43,6 +46,7 @@ extension TeamService: ScaledroneRoomDelegate {
   func scaledroneRoomDidConnect(room: ScaledroneRoom, error: Error?) {
     print("Scaledrone connected to room", room.name, error ?? "")
   }
+
   
   func scaledroneRoomDidReceiveMessage(
     room: ScaledroneRoom,

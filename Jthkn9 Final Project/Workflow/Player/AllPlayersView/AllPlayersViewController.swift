@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 
 protocol AllPlayersViewControllerDelegate: class {
-    func playerDeleted()
+    func playerUpdate()
 }
 
 final class AllPlayersViewController: UIViewController {
@@ -44,6 +44,11 @@ extension AllPlayersViewController {
             let player: Player = (sender as? Player)!
             playerViewController.setup(player: player, delegate: self)
         }
+        else if let createVC = segue.destination as? PlayerCreationViewController {
+            let playerModel = PlayerCreationModel(teams: model.getTeamTupleArray(), delegate: self)
+
+            createVC.setup(model: playerModel)
+        }
     }
 }
 
@@ -76,22 +81,33 @@ extension AllPlayersViewController: PlayerViewControllerDelegate {
         // model delete stuff
         model.deletePlayer(player: player)
         model.importDataFromPersistance()
-        delegate?.playerDeleted()
+        delegate?.playerUpdate()
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
     }
 }
 
 extension AllPlayersViewController: TeamListViewControllerDelegate {
+    
     func dataImported() {
         model.importDataFromPersistance()
         tableView?.reloadData()
     }
     
-    func playerAdded() {
+    func teamAdded() {
         // model pull fresh from persistence
         // this question mark wraps the tableview again in the event the user hasn't visited the player table and allocated that VC
         model.importDataFromPersistance()
         tableView?.reloadData()
     }
+}
+extension AllPlayersViewController: PlayerCreationDelegate{
+    func save(player: Player) {
+        model.save(player: player)
+        model.importDataFromPersistance()
+        delegate?.playerUpdate()
+        tableView?.reloadData()
+    }
+    
+    
 }

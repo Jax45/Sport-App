@@ -25,6 +25,33 @@ final class AllPlayersModel{
 }
 
 extension AllPlayersModel {
+    func save(player: Player) {
+        //save to persistence
+        var partsOfName = player.name.components(separatedBy: " ")
+        let first = partsOfName.removeFirst()
+        let last = partsOfName.joined(separator: " ")
+        persistence?.addPlayerToTeam(player: PlayerForPersistance(id: player.playerId, firstName: first, lastName: last, teamId: player.teamId, stats: player.seasons))
+        //save to local
+        var selectedTeam: Team = Team(id: 0, logo: "", teamName: "", roster: [], wins: 0, losses: 0)
+        for team in teams{
+            if team.id == player.teamId {
+                
+                var roster = team.roster
+                roster.append(player)
+                selectedTeam = Team(id: team.id, logo: team.logo, teamName: team.teamName, roster: roster, wins: team.wins, losses: team.losses)
+            }
+        }
+        teams.removeAll(where:{ $0.id == selectedTeam.id})
+        teams.append(selectedTeam)
+    }
+
+    func getTeamTupleArray() -> [(Int, String)] {
+        var tupleArray: [(Int,String)] = []
+        for team in teams {
+            tupleArray.append((team.id, team.teamName))
+        }
+        return tupleArray
+    }
     func getPlayer(atIndex: Int) -> Player{
         return players[atIndex]
     }
