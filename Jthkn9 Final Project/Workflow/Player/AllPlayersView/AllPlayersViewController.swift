@@ -81,9 +81,18 @@ extension AllPlayersViewController: PlayerViewControllerDelegate {
         // model delete stuff
         model.deletePlayer(player: player)
         model.importDataFromPersistance()
+        
         delegate?.playerUpdate()
         tableView.reloadData()
         navigationController?.popViewController(animated: true)
+    }
+    func updatePlayer(new: Player,old: Player){
+        //delete the player from persistance and add it back.
+        model.deletePlayer(player: old)
+        model.addPlayer(player: new)
+        model.importDataFromPersistance()
+        delegate?.playerUpdate()
+        tableView.reloadData()
     }
 }
 

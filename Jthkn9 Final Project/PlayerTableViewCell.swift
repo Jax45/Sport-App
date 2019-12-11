@@ -53,4 +53,25 @@ final class PlayerTableViewCell: UITableViewCell {
         onBase.text = "OBP: \(obp)"
         batAvg.text = "BA: \(ba)"
     }
+    func setup(with seasons: Seasons) {
+        
+        firstName.text = "\(seasons.year)"
+        lastName.text = ""
+        
+        //let stats = player.seasons.first(where: {$0.year == year})
+        
+        hits.text = "Hits: \(seasons.hits )"
+        atBat.text = "at Bats: \(seasons.atBat )"
+        runs.text = "Runs: \(seasons.runs )"
+        walks.text = "Walks: \(seasons.walks )"
+        rbis.text = "RBI's: \(seasons.rBIS )"
+        homeRuns.text = "HR's: \(seasons.homeRuns )"
+        
+        let ba = String(format: "%.2f", seasons.BA )
+        let obp = String(format: "%.2f", seasons.OBP )
+        
+        onBase.text = "OBP: \(obp)"
+        batAvg.text = "BA: \(ba)"
+    }
+    
 }

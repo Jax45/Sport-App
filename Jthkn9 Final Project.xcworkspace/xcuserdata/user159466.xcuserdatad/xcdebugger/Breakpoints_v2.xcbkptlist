@@ -39,16 +39,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5EAFD23F-58E4-4550-BF0C-32B9299795AB"
+            uuid = "59DE1CA2-CB9B-4F6E-B41B-AD83BA59B19A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Jthkn9 Final Project/Workflow/Team/TeamList/TeamListModel.swift"
+            filePath = "Jthkn9 Final Project/PlayerView/PlayerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "init(persistence:teams:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "add(season:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

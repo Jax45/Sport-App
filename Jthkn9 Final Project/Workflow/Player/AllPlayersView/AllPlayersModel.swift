@@ -95,4 +95,14 @@ extension AllPlayersModel {
         //delete local
         players.removeAll(where: {$0.playerId == player.playerId})
     }
+    func addPlayer(player: Player) {
+        var partsOfName = player.name.components(separatedBy: " ")
+        
+        let first = partsOfName.removeFirst()
+        let last = partsOfName.joined(separator: " ")
+        persistence?.addPlayerToTeam(player: PlayerForPersistance(id: player.playerId, firstName: first, lastName: last, teamId: player.teamId, stats: player.seasons))
+        
+        //add local
+        players.append(player)
+    }
 }
