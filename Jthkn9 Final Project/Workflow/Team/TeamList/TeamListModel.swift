@@ -61,11 +61,14 @@ extension TeamListModel {
 //        teamService.connect()
         teamService.sendMessage(msg)
         //refresh the message history
-        teamService.disconnect()
-        refreashMessageHistory()
+        //teamService.disconnect()
+        //        refreashMessageHistory()
+
     }
     
     func importTeamsFromJson(){
+        refreashMessageHistory()
+
         teams = teamsFromScaledrone
                 //clear old persistence and replace it with new data from json
                 self.persistence?.deleteAllData()

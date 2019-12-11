@@ -22,23 +22,27 @@ class SeasonViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    func setup(seasons: Seasons,delegate: SeasonViewControllerDelegate){
-        self.delegate = delegate
+        let seasons = model.getSeason()
         YearLabel.text = "\(seasons.year)"
-        YearLabel.allowsEditingTextAttributes = false
+        if model.isUpdate(){
+            YearLabel.isUserInteractionEnabled = false
+        }
         HitsLabel.text = "\(seasons.hits)"
         AtBatsLabel.text = "\(seasons.atBat)"
         HomeRunsLabel.text = "\(seasons.homeRuns)"
         RunsLabel.text = "\(seasons.runs)"
         RBILabel.text = "\(seasons.rBIS)"
         WalksLabel.text = "\(seasons.walks)"
+        // Do any additional setup after loading the view.
+    }
+    func setup(seasons: Seasons,delegate: SeasonViewControllerDelegate){
+        self.delegate = delegate
+        model = SeasonModel(years: [], season: seasons)
         model.setUpdate()
     }
     func setup(currentYears: [Int],delegate: SeasonViewControllerDelegate){
         self.delegate = delegate
-        model = SeasonModel(years: currentYears)
+        model = SeasonModel(years: currentYears, season: Seasons(year: 2000, atBat: 0, runs: 0, walks: 0, homeRuns: 0, rBIS: 0, hits: 0))
     }
 
     @IBAction func SubmitPressed(_ sender: Any) {

@@ -10,9 +10,10 @@ import Foundation
 class SeasonModel{
     private var currentYears: [Int]
     private var update = false
-    
-    init(years: [Int]) {
+    private var season: Seasons
+    init(years: [Int],season: Seasons) {
         currentYears = years
+        self.season = season
     }
     func hasYear(year: Int) -> Bool {
         return currentYears.contains(year)
@@ -22,5 +23,9 @@ class SeasonModel{
     }
     func isUpdate() -> Bool{
         return update
+    }
+
+    func getSeason() -> Seasons{
+        return self.season
     }
 }
