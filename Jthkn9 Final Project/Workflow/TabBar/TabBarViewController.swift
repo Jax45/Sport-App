@@ -37,12 +37,14 @@ extension TabBarViewController {
         
         let messageNavViewController = MessageViewController.instanceOfParent()
         
+        let newsNavViewController = NewsViewController.instanceOfParent()
+        
         let teamListViewController = teamListNavigationViewController.rootViewController(asType: TeamListViewController.self)
         let playerListViewController = playerListNavigationViewController.rootViewController(asType: AllPlayersViewController.self)
         //let messageViewController = messageNavViewController.rootViewController(asType: MessageViewController.self)
         teamListViewController.delegate = playerListViewController
         playerListViewController.delegate = teamListViewController
         
-        setViewControllers([teamListNavigationViewController, playerListNavigationViewController, messageNavViewController], animated: true)
+        setViewControllers([teamListNavigationViewController, playerListNavigationViewController, messageNavViewController,newsNavViewController], animated: true)
     }
 }
