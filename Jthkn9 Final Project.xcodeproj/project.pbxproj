@@ -16,6 +16,7 @@
 		444F6D89239B019D0045C96D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F6D88239B019D0045C96D /* UIColor.swift */; };
 		444F6D8B239B0D090045C96D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F6D8A239B0D090045C96D /* ChatService.swift */; };
 		444F6D8D239B43040045C96D /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F6D8C239B43040045C96D /* TeamService.swift */; };
+		44544DDC23A1643C00217C7C /* FilterPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44544DDB23A1643C00217C7C /* FilterPlayersViewController.swift */; };
 		4469A32E239F08B3009B7EC5 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4469A32D239F08B3009B7EC5 /* News.storyboard */; };
 		4469A330239F0970009B7EC5 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A32F239F0970009B7EC5 /* NewsCollectionViewCell.swift */; };
 		4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A333239F0CD6009B7EC5 /* NewsViewController.swift */; };
@@ -90,6 +91,7 @@
 		444F6D88239B019D0045C96D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		444F6D8A239B0D090045C96D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		444F6D8C239B43040045C96D /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		44544DDB23A1643C00217C7C /* FilterPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPlayersViewController.swift; sourceTree = "<group>"; };
 		4469A32D239F08B3009B7EC5 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		4469A32F239F0970009B7EC5 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		4469A333239F0CD6009B7EC5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				7AE7296E22EAB21700FC0D61 /* AllPlayers.storyboard */,
 				7AE7297122EAB32000FC0D61 /* AllPlayersModel.swift */,
 				7AE7297322EAB48600FC0D61 /* AllPlayersViewController.swift */,
+				44544DDB23A1643C00217C7C /* FilterPlayersViewController.swift */,
 			);
 			path = AllPlayersView;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				9ECC9C2C22EFDC2B00990065 /* Log.swift in Sources */,
 				444F6D8B239B0D090045C96D /* ChatService.swift in Sources */,
 				7AEF017F22F4760300511752 /* TabBarViewController.swift in Sources */,
+				44544DDC23A1643C00217C7C /* FilterPlayersViewController.swift in Sources */,
 				9EE012D722E9292E00C69F8F /* TeamViewController.swift in Sources */,
 				4469A330239F0970009B7EC5 /* NewsCollectionViewCell.swift in Sources */,
 				7AE5B1BF22F151BA0010E9EE /* PlayerFromJson.swift in Sources */,

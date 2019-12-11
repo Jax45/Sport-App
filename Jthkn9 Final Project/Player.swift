@@ -20,5 +20,14 @@ struct Player: Codable {
         self.name = name
         self.seasons = seasons
     }
-    
+    func firstName() -> String {
+        var partsOfName = name.components(separatedBy: " ")
+        let first = partsOfName.removeFirst()
+        return first
+    }
+    func lastName() -> String {
+        let partsOfName = name.components(separatedBy: " ")
+        let last = partsOfName.joined(separator: " ")
+        return last
+    }
 }

@@ -6,7 +6,8 @@ protocol AllPlayersModelDelegate: class {
 }
 
 final class AllPlayersModel{
-    
+    private let dateFormatter = DateFormatter().dateFormat = "yyyy"
+    private let currentYear = Int(DateFormatter().string(from: Date()))
     private var teams: [Team] = []
     private var players: [Player] = []
     let rowHeight: CGFloat = 64.0
@@ -25,6 +26,29 @@ final class AllPlayersModel{
 }
 
 extension AllPlayersModel {
+    
+    func filter(filter: String){
+        //check lowercase
+        
+        switch filter {
+        case "First":
+            players.sort(by: { $0.firstName() < $1.firstName() })
+        case "Last":
+            players.sort(by: { $0.lastName() < $1.lastName()})
+//        case "Hits":
+//        case "Walks":
+//        case "HR's":
+//        case "RBI's":
+//        case "OBP":
+//        case "AtBat":
+//        case "BA":
+//        case "Runs":
+
+        default:
+            print("Filter error.")
+        }
+    }
+    
     func save(player: Player) {
         //save to persistence
         var partsOfName = player.name.components(separatedBy: " ")

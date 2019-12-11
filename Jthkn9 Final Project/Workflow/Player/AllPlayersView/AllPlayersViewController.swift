@@ -49,6 +49,9 @@ extension AllPlayersViewController {
 
             createVC.setup(model: playerModel)
         }
+        else if let filterVC = segue.destination as? FilterPlayersViewController {
+            filterVC.delegate = self
+        }
     }
 }
 
@@ -94,6 +97,14 @@ extension AllPlayersViewController: PlayerViewControllerDelegate {
         delegate?.playerUpdate()
         tableView.reloadData()
     }
+}
+extension AllPlayersViewController: filterPlayersDelegate{
+    func filterTeams(filter: String) {
+        model.filter(filter: filter)
+        tableView.reloadData()
+    }
+    
+    
 }
 
 extension AllPlayersViewController: TeamListViewControllerDelegate {
