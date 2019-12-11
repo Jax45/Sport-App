@@ -39,6 +39,17 @@ final class TeamListModel{
 }
 
 extension TeamListModel {
+    func refreashMessageHistory(){
+        teamService = TeamService(onRecievedMessage: {[weak self] json in
+        //print(json)
+            do{
+            self?.teamsFromScaledrone = try JSONDecoder().decode([Team].self, from: json.data(using: .utf8)!)
+            }catch {
+                print("could not parse json")
+            }
+        })
+        teamService.connect()
+    }
     func setDelegate(delegate: TeamListModelDelegate){
         self.delegate = delegate
     }
@@ -51,7 +62,7 @@ extension TeamListModel {
         teamService.sendMessage(msg)
         //refresh the message history
         teamService.disconnect()
-        teamService.connect()
+        refreashMessageHistory()
     }
     
     func importTeamsFromJson(){

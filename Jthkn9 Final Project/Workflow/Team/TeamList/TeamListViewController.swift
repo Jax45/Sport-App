@@ -151,6 +151,7 @@ extension TeamListViewController: AllPlayersViewControllerDelegate {
     func playerUpdate() {
         // model pull the update from persistence
         model.importTeamsFromPersistance()
+
         tableView.reloadData()
     }
 }

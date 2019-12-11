@@ -6,6 +6,9 @@ Notes December 2019: TODO
 5.
 
 
+NOTE: 12/10/2019 11:09pm
+The seasons seem to be updating correctly just need to check persistance and for somereason it is not updating the teams database in the teamlist view when we send the data and receive it.
+
 
 
 
