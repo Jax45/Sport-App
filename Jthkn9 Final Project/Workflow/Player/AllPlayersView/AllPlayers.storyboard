@@ -8,13 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--All Players Stats-->
+        <!--Players-->
         <scene sceneID="ox0-cp-MKH">
             <objects>
                 <navigationController id="HW4-LY-GeW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="All Players Stats" id="irz-sY-yUw">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Players" image="person" catalog="system" selectedImage="person" id="irz-sY-yUw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sJP-gM-iUP">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -367,4 +365,7 @@
             <point key="canvasLocation" x="456" y="-85"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="person" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

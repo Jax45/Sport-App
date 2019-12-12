@@ -292,5 +292,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8221F84-AA7C-44DF-BE37-F9269CA34242"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Jthkn9 Final Project/Workflow/Player/AllPlayersView/AllPlayersModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "AllPlayersModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3BD657A-757D-488C-B602-DC937C2DED5E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Jthkn9 Final Project/Player.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "withYear(year:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A3BD657A-757D-488C-B602-DC937C2DED5E - 62820282bea21400"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Jthkn9_Final_Project.Player.withYear(year: Swift.Int) -&gt; Jthkn9_Final_Project.Seasons"
+                  moduleName = "Jthkn9 Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user159466/Desktop/Sport%20App/Jthkn9%20Final%20Project/Player.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "A3BD657A-757D-488C-B602-DC937C2DED5E - 1a0abbf76096490a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Jthkn9_Final_Project.Seasons) -&gt; Swift.Bool in Jthkn9_Final_Project.Player.withYear(year: Swift.Int) -&gt; Jthkn9_Final_Project.Seasons"
+                  moduleName = "Jthkn9 Final Project"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user159466/Desktop/Sport%20App/Jthkn9%20Final%20Project/Player.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E60C89D4-281C-4B0E-94E9-DEB7279899BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Jthkn9 Final Project/Workflow/Messaging/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

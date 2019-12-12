@@ -13,7 +13,7 @@
         <scene sceneID="ddj-RJ-4cQ">
             <objects>
                 <navigationController id="gDn-s3-JqF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" id="4co-oz-Cqu"/>
+                    <tabBarItem key="tabBarItem" title="News" image="doc.on.doc" catalog="system" selectedImage="doc.on.doc" id="4co-oz-Cqu"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nda-aC-RBR">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -131,4 +131,7 @@
             <point key="canvasLocation" x="166.66666666666669" y="126.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="doc.on.doc" catalog="system" width="58" height="64"/>
+    </resources>
 </document>

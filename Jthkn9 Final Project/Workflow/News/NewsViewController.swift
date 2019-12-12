@@ -37,7 +37,7 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCollectionViewCell
-        let news = model.getNews(atIndex: indexPath.row)
+        let news = model.getNews(atIndex: indexPath.section + (2*indexPath.item))
         cell.setup(headline: news.headline, image: UIImage(named: news.imageString)!, descrip: news.description)
         return cell
     }

@@ -26,9 +26,12 @@ final class PlayerTableViewCell: UITableViewCell {
     @IBOutlet weak var batAvg: UILabel!
     
     private(set) var player: Player!
-    private let dateFormatter = DateFormatter().dateFormat = "yyyy"
-    private let year = Int(DateFormatter().string(from: Date()))
+    //private let dateFormatter = DateFormatter().dateFormat = "yyyy"
+    //private let year = Int(DateFormatter().string(from: Date()))
     func setup(with player: Player) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let year = Int(dateFormatter.string(from: Date()))
         self.player = player
         
         var partsOfName = player.name.components(separatedBy: " ")

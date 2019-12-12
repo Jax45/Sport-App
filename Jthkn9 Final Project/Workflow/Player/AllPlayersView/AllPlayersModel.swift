@@ -6,8 +6,7 @@ protocol AllPlayersModelDelegate: class {
 }
 
 final class AllPlayersModel{
-    private let dateFormatter = DateFormatter().dateFormat = "yyyy"
-    private let currentYear = Int(DateFormatter().string(from: Date()))
+    
     private var teams: [Team] = []
     private var players: [Player] = []
     let rowHeight: CGFloat = 64.0
@@ -28,21 +27,32 @@ final class AllPlayersModel{
 extension AllPlayersModel {
     
     func filter(filter: String){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let currentYear = Int(dateFormatter.string(from: Date()))
         //check lowercase
         
         switch filter {
         case "First":
-            players.sort(by: { $0.firstName() < $1.firstName() })
+            players.sort(by: { $0.firstName().lowercased() < $1.firstName().lowercased() })
         case "Last":
-            players.sort(by: { $0.lastName() < $1.lastName()})
-//        case "Hits":
-//        case "Walks":
-//        case "HR's":
-//        case "RBI's":
-//        case "OBP":
-//        case "AtBat":
-//        case "BA":
-//        case "Runs":
+            players.sort(by: { $0.lastName().lowercased() < $1.lastName().lowercased()})
+        case "Hits":
+            players.sort(by: {$0.withYear(year: currentYear!).hits > $1.withYear(year: currentYear!).hits})
+        case "Walks":
+            players.sort(by: {$0.withYear(year: currentYear!).walks > $1.withYear(year: currentYear!).walks})
+        case "HR's":
+            players.sort(by: {$0.withYear(year: currentYear!).homeRuns > $1.withYear(year: currentYear!).homeRuns})
+        case "RBI's":
+            players.sort(by: {$0.withYear(year: currentYear!).rBIS > $1.withYear(year: currentYear!).rBIS})
+        case "OBP":
+            players.sort(by: {$0.withYear(year: currentYear!).OBP > $1.withYear(year: currentYear!).OBP})
+        case "AtBat":
+            players.sort(by: {$0.withYear(year: currentYear!).atBat > $1.withYear(year: currentYear!).atBat})
+        case "BA":
+            players.sort(by: {$0.withYear(year: currentYear!).BA > $1.withYear(year: currentYear!).BA})
+        case "Runs":
+            players.sort(by: {$0.withYear(year: currentYear!).runs > $1.withYear(year: currentYear!).runs})
 
         default:
             print("Filter error.")

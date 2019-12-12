@@ -19,5 +19,7 @@ struct Seasons: Codable {
     
     var OBP: Double {return (Double(hits + walks) / Double(atBat + walks))}
     var BA: Double {return (Double(hits) / Double(atBat))}
+    
+    
 }
 
