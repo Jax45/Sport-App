@@ -23,6 +23,9 @@
 		4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A333239F0CD6009B7EC5 /* NewsViewController.swift */; };
 		4469A336239F12BB009B7EC5 /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A335239F12BB009B7EC5 /* NewsStory.swift */; };
 		4469A338239F134C009B7EC5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A337239F134C009B7EC5 /* NewsModel.swift */; };
+		44A2E6AA23A2D70C00EDA699 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6A923A2D70C00EDA699 /* ProfileView.swift */; };
+		44A2E6AC23A2D9C100EDA699 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6AB23A2D9C100EDA699 /* IconView.swift */; };
+		44A2E6AE23A2DA3200EDA699 /* IconLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6AD23A2DA3200EDA699 /* IconLayer.swift */; };
 		44B4AE7B23A09F1000391028 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B4AE7A23A09F1000391028 /* SeasonModel.swift */; };
 		44DA18BD23A06F3A0037D716 /* Season.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44DA18BC23A06F3A0037D716 /* Season.storyboard */; };
 		44DA18C123A06F660037D716 /* PlayerSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DA18C023A06F660037D716 /* PlayerSelectModel.swift */; };
@@ -99,6 +102,9 @@
 		4469A333239F0CD6009B7EC5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4469A335239F12BB009B7EC5 /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
 		4469A337239F134C009B7EC5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		44A2E6A923A2D70C00EDA699 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		44A2E6AB23A2D9C100EDA699 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		44A2E6AD23A2DA3200EDA699 /* IconLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLayer.swift; sourceTree = "<group>"; };
 		44B4AE7A23A09F1000391028 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
 		44DA18BC23A06F3A0037D716 /* Season.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Season.storyboard; sourceTree = "<group>"; };
 		44DA18C023A06F660037D716 /* PlayerSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectModel.swift; sourceTree = "<group>"; };
@@ -182,6 +188,9 @@
 				443937CF239AD2AA00C2A8C5 /* Message.swift */,
 				443937D1239ADCB400C2A8C5 /* ProfileViewController.swift */,
 				444F6D8A239B0D090045C96D /* ChatService.swift */,
+				44A2E6A923A2D70C00EDA699 /* ProfileView.swift */,
+				44A2E6AB23A2D9C100EDA699 /* IconView.swift */,
+				44A2E6AD23A2DA3200EDA699 /* IconLayer.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -579,6 +588,7 @@
 				9ECC9C2A22EFDC2B00990065 /* JsonCodingKeys.swift in Sources */,
 				9ECC9C1222EFDB3700990065 /* FileManager.swift in Sources */,
 				7AE41CC822E5072900AB09EC /* TeamListViewController.swift in Sources */,
+				44A2E6AA23A2D70C00EDA699 /* ProfileView.swift in Sources */,
 				7AE41C9222E364A700AB09EC /* AppDelegate.swift in Sources */,
 				9ECC9BFE22EFD63800990065 /* FileStoragePersistence.swift in Sources */,
 				7A9F201D22E7F2010057E326 /* Seasons.swift in Sources */,
@@ -597,6 +607,7 @@
 				4469A338239F134C009B7EC5 /* NewsModel.swift in Sources */,
 				44B4AE7B23A09F1000391028 /* SeasonModel.swift in Sources */,
 				443937D0239AD2AA00C2A8C5 /* Message.swift in Sources */,
+				44A2E6AE23A2DA3200EDA699 /* IconLayer.swift in Sources */,
 				443937D2239ADCB400C2A8C5 /* ProfileViewController.swift in Sources */,
 				7A9F201822E7F1760057E326 /* finalDataGet.swift in Sources */,
 				4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */,
@@ -609,6 +620,7 @@
 				444F6D87239B01690045C96D /* String.swift in Sources */,
 				9ECC9C1422EFDB3900990065 /* Date.swift in Sources */,
 				9ECC9C1A22EFDB3F00990065 /* KeyedEncodingContainerProtocol.swift in Sources */,
+				44A2E6AC23A2D9C100EDA699 /* IconView.swift in Sources */,
 				9ECC9C2C22EFDC2B00990065 /* Log.swift in Sources */,
 				444F6D8B239B0D090045C96D /* ChatService.swift in Sources */,
 				7AEF017F22F4760300511752 /* TabBarViewController.swift in Sources */,
@@ -687,7 +699,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -742,7 +754,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -761,6 +773,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Jthkn9 Final Project/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,6 +795,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Jthkn9 Final Project/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

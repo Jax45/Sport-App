@@ -47,7 +47,8 @@ extension TeamListViewController{
     }
     
     @objc func addPlayerTapped() {
-        performSegue(withIdentifier: "PlayerCreationView", sender: model.getTeamTupleArray())
+        print("Add team coming soon...")
+        //performSegue(withIdentifier: "PlayerCreationView", sender: model.getTeamTupleArray())
     }
     @objc func sendTapped(){
         let jsonData = try! JSONEncoder().encode(model.getAllTeams())

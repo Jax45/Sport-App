@@ -12,7 +12,7 @@
         <scene sceneID="suf-Rc-MIy">
             <objects>
                 <navigationController id="gTq-MF-ZGe" userLabel="Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Teams" image="person.3" catalog="system" selectedImage="person.3" id="BDC-q2-sCk" userLabel="Teams"/>
+                    <tabBarItem key="tabBarItem" title="Teams" image="person.3" catalog="system" id="BDC-q2-sCk" userLabel="Teams"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ABs-a7-AXf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

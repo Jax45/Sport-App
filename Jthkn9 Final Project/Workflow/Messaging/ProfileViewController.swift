@@ -13,9 +13,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var RedSlider: UISlider!
     @IBOutlet weak var GreenSlider: UISlider!
     @IBOutlet weak var BlueSlider: UISlider!
+    @IBOutlet weak var profileView: ProfileView!
     
     private let defaults = UserDefaults.standard
-    
+    private var iconView: IconView!
     override func viewDidLoad() {
         super.viewDidLoad()
         //NameTextField.text = .randomName
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController {
             GreenSlider.setValue(profile!.green, animated: false)
             BlueSlider.setValue(profile!.blue, animated: false)
             RedSlider.setValue(profile!.red, animated: false)
+            iconView = IconView(frame: .zero, red: profile!.red, green: profile!.green, blue: profile!.blue)
         }
         else{
             let components = UIColor.random.cgColor.components;
@@ -34,9 +36,17 @@ class ProfileViewController: UIViewController {
             GreenSlider.setValue(Float(green), animated: false)
             BlueSlider.setValue(Float(blue), animated: false)
             RedSlider.setValue(Float(red), animated: false)
+            iconView = IconView(frame: .zero, red: Float(red), green: Float(green), blue: Float(blue))
         }
+        profileView.addSubview(iconView)
+
         
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func SliderChanged(_ sender: Any) {
+        profileView.newColors(red: RedSlider.value, green: GreenSlider.value, blue: BlueSlider.value)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
