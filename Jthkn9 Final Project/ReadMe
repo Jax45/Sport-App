@@ -1,14 +1,55 @@
-Notes December 2019: TODO
-1. App needs to respect MVC first with the delegation.
-2. File persistance to core data
-3. Messageing feature
-4. News feature
-5.
+Notes December 2019:
+Additions in version 2.0
+1. Added cocoa pods to use scaledrone and messagekit.
+
+2. added the Messaging feature with a profile selector.
+
+3. Changed the json to be retrieved from the Scaledrone webserver instead of a local file
+
+4. encoded the data to be sent to scaledrone.
+
+5. added seasons tableview to playerview
+
+6. added Create/Update views for seasons of a player
+
+7. added filtering to the Allplayers view with a modal
+
+8. Added a Newsstory structure that will eventually be on scaledrone and made it its own UICollection View cell and controller.
+
+9. added a drawing of the color chosen to the profile picker to make it easier to know what color you are choosing.
 
 
-NOTE: 12/10/2019 11:09pm
-The seasons seem to be updating correctly just need to check persistance and for somereason it is not updating the teams database in the teamlist view when we send the data and receive it.
+Points for final:
 
+Full autolayouts: 3
+
+All device suppported: 2
+
+Messaging view controller 1
+
+Messaging structs(member and message): 2
+
+MessageProfile view Controller 1
+
+Device to device messaging 5
+
+Response/Request in TeamListViewController: 3
+
+NewsUI CollectionView: 3
+
+NewsStory.swift 1
+
+SeasonsViewController 1
+
+SeasonsTableView: 2
+
+Create/UpdateSeason: 1
+
+Modal for filtering Allplayers: 1pt
+
+Struct for profile to save to nsuserdefaults Profile.swift 1pt
+
+IconLayer draws the circle icon for the profileView. 3pt
 
 
 
