@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CR4-Nu-65u">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Log In-->
+        <scene sceneID="HbT-Ir-O4G">
+            <objects>
+                <navigationController id="CR4-Nu-65u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Log In" selectedImage="lock" catalog="system" id="vrC-vZ-Xa1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dfh-95-r6r">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="q4H-Lu-VWt" kind="relationship" relationship="rootViewController" id="FiV-3c-Bdj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8W-cV-IDu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-823" y="82"/>
+        </scene>
+        <!--Auth View Controller-->
+        <scene sceneID="WA6-x0-xaS">
+            <objects>
+                <viewController id="q4H-Lu-VWt" customClass="AuthViewController" customModule="Jthkn9_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k8g-aQ-gGX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IL-yc-ZF6">
+                                <rect key="frame" x="170" y="222" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ncc-HF-48G">
+                                <rect key="frame" x="40" y="253" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-J0-MWQ">
+                                <rect key="frame" x="176.5" y="337" width="61" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="LoginPressed:" destination="q4H-Lu-VWt" eventType="touchUpInside" id="S0Y-pA-4Tc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ncc-HF-48G" firstAttribute="leading" secondItem="Pte-2u-BgL" secondAttribute="leading" constant="40" id="AVr-xi-jCS"/>
+                            <constraint firstItem="Pte-2u-BgL" firstAttribute="trailing" secondItem="Ncc-HF-48G" secondAttribute="trailing" constant="40" id="JgA-T2-KRY"/>
+                            <constraint firstItem="Ncc-HF-48G" firstAttribute="top" secondItem="8IL-yc-ZF6" secondAttribute="bottom" constant="10" id="ORB-KO-cnJ"/>
+                            <constraint firstItem="8IL-yc-ZF6" firstAttribute="centerX" secondItem="k8g-aQ-gGX" secondAttribute="centerX" id="PIX-No-Ix8"/>
+                            <constraint firstItem="zVR-J0-MWQ" firstAttribute="top" secondItem="Ncc-HF-48G" secondAttribute="bottom" constant="50" id="WOo-YO-hmD"/>
+                            <constraint firstItem="zVR-J0-MWQ" firstAttribute="centerX" secondItem="k8g-aQ-gGX" secondAttribute="centerX" id="dxP-nf-Z7y"/>
+                            <constraint firstItem="8IL-yc-ZF6" firstAttribute="top" secondItem="Pte-2u-BgL" secondAttribute="top" constant="134" id="zTX-UH-XCT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pte-2u-BgL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iQd-Xz-tIQ"/>
+                    <connections>
+                        <outlet property="label" destination="Ncc-HF-48G" id="Fdr-2J-a9z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rv3-c6-wFt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-13.043478260869566" y="81.696428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lock" catalog="system" width="64" height="64"/>
+    </resources>
+</document>

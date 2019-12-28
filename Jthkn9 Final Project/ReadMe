@@ -1,3 +1,7 @@
+January Deployment.
+todo:
+Secure the data send, retrieve, and messaging with simple password.
+
 Notes December 2019:
 Additions in version 2.0
 1. Added cocoa pods to use scaledrone and messagekit.

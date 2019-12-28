@@ -94,6 +94,7 @@ extension TabBarModel {
     }
     
     private func getTeamsFromJson() -> [Team]{
+        return []
         var teamsFromJson: [TeamFromJson]
         var teams: [Team] = []
         teamsFromJson = try! JSONDecoder().decode([TeamFromJson].self, from: jsonReadFile().json)

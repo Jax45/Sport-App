@@ -11,7 +11,7 @@ struct PlayerForPersistance: Codable {
     let id: UUID
     var firstName: String
     var lastName: String
-    var teamId: Int
+    var teamId: UUID
     var stats: [Seasons] = []
 }
 

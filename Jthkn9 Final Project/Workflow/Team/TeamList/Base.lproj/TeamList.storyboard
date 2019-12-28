@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTq-MF-ZGe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTq-MF-ZGe">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -122,10 +121,10 @@
                     <navigationItem key="navigationItem" title="Team List" id="VEF-rb-4eR">
                         <barButtonItem key="leftBarButtonItem" title="Import Data" id="iuQ-Ph-OU7"/>
                         <rightBarButtonItems>
-                            <barButtonItem enabled="NO" systemItem="add" id="7KS-2i-waz">
+                            <barButtonItem systemItem="add" id="7KS-2i-waz">
                                 <color key="tintColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="0.67808219179999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="ofg-Wb-N4Q" kind="show" identifier="PlayerCreationView" id="VjM-R6-fDF"/>
+                                    <segue destination="ofg-Wb-N4Q" kind="show" identifier="TeamUpdate" id="VjM-R6-fDF"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Send" id="Sqk-21-T9u"/>
@@ -141,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="-593" y="118"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--TeamUpdate-->
         <scene sceneID="EN6-sr-oBK">
             <objects>
-                <viewControllerPlaceholder id="ofg-Wb-N4Q" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="TeamUpdate" id="ofg-Wb-N4Q" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWU-Jo-mvK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="59" y="-84"/>

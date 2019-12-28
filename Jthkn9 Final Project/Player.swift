@@ -10,11 +10,11 @@ import Foundation
 
 struct Player: Codable {
     let playerId: UUID
-    var teamId: Int
+    var teamId: UUID
     var name: String
     var seasons: [Seasons]
     
-    init(playerId: UUID,teamId: Int, name: String, seasons: [Seasons]) {
+    init(playerId: UUID,teamId: UUID, name: String, seasons: [Seasons]) {
         self.playerId = playerId
         self.teamId = teamId
         self.name = name

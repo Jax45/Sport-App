@@ -9,11 +9,11 @@
 import Foundation
 
 struct PlayerFromJson: Codable {
-    var teamId: Int
+    var teamId: UUID
     var name: String
     var seasons: [Seasons]
     
-    init(teamId: Int, name: String, seasons: [Seasons]) {
+    init(teamId: UUID, name: String, seasons: [Seasons]) {
         self.teamId = teamId
         self.name = name
         self.seasons = seasons

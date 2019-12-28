@@ -94,6 +94,10 @@ extension TeamListModel {
         
     }
     
+    func addTeam(name: String, logo: String){
+        teams.append(Team(id: UUID(), logo: logo, teamName: name, roster: [], wins: 0, losses: 0))
+    }
+    
     func importTeamsFromPersistance() {
         if let teamData = persistence?.savedTeams  {
             var teamList: [Team] = []
@@ -132,15 +136,15 @@ extension TeamListModel {
         return teams[atIndex]
     }
     
-    func getTeamDictionary() -> [Int : String] {
-        var dictionary: [Int : String] = [:]
+    func getTeamDictionary() -> [UUID : String] {
+        var dictionary: [UUID : String] = [:]
         for team in teams{
             dictionary[team.id] = team.teamName
         }
         return dictionary
     }
-    func getTeamTupleArray() -> [(Int, String)] {
-        var tupleArray: [(Int,String)] = []
+    func getTeamTupleArray() -> [(UUID, String)] {
+        var tupleArray: [(UUID,String)] = []
         for team in teams {
             tupleArray.append((team.id, team.teamName))
         }
@@ -154,17 +158,18 @@ extension TeamListModel {
         let last = partsOfName.joined(separator: " ")
         persistence?.addPlayerToTeam(player: PlayerForPersistance(id: player.playerId, firstName: first, lastName: last, teamId: player.teamId, stats: player.seasons))
         //save to local
-        var selectedTeam: Team = Team(id: 0, logo: "", teamName: "", roster: [], wins: 0, losses: 0)
+        var selectedTeam: Team
         for team in teams{
             if team.id == player.teamId {
                 
                 var roster = team.roster
                 roster.append(player)
                 selectedTeam = Team(id: team.id, logo: team.logo, teamName: team.teamName, roster: roster, wins: team.wins, losses: team.losses)
+                teams.removeAll(where:{ $0.id == selectedTeam.id})
+                teams.append(selectedTeam)
             }
         }
-        teams.removeAll(where:{ $0.id == selectedTeam.id})
-        teams.append(selectedTeam)
+        
     }
     
     func save(teamToSave: Team) {
@@ -184,6 +189,7 @@ extension TeamListModel {
         }
         else{
             teams.append(teamToSave)
+            persistence?.saveTeam(team: TeamForPersistance(id: teamToSave.id, logo: teamToSave.logo, teamName: teamToSave.teamName, roster: [], wins: teamToSave.wins, losses: teamToSave.losses))
         }
     }
 }

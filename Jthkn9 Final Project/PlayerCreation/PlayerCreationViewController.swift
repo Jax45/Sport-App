@@ -33,7 +33,7 @@ final class PlayerCreationViewController: UIViewController {
     @IBAction func submitTapped(_ sender: Any) {
 
         if model.validateInput(first: FirstName?.text, last: LastName?.text, teamName: TeamName?.text) {
-            model.savePlayer(first: FirstName.text!, last: LastName.text!, teamId: model.getTeamId(with: TeamName.text!))
+            model.savePlayer(first: FirstName.text!, last: LastName.text!, teamId: model.getTeamId(with: TeamName.text!)!)
                 navigationController?.popViewController(animated: true)
         }
         else {

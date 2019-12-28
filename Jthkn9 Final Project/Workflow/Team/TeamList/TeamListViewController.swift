@@ -6,6 +6,10 @@ protocol TeamListViewControllerDelegate: class {
     func dataImported()
 }
 
+protocol TeamUpdateDelegate: class {
+    func submit(name: String, logo: String)
+}
+
 final class TeamListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
@@ -18,6 +22,7 @@ final class TeamListViewController: UIViewController {
 extension TeamListViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
         let importButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(importTapped))
@@ -47,42 +52,84 @@ extension TeamListViewController{
     }
     
     @objc func addPlayerTapped() {
-        print("Add team coming soon...")
-        //performSegue(withIdentifier: "PlayerCreationView", sender: model.getTeamTupleArray())
+        
+        performSegue(withIdentifier: "TeamUpdate", sender: nil)
     }
     @objc func sendTapped(){
-        let jsonData = try! JSONEncoder().encode(model.getAllTeams())
+        //if not authenticated ask.
+        let defaults = UserDefaults.standard
+        if let auth = defaults.object(forKey: "Auth") as? Int {
+            //is authenticated
+            if auth == 2 {
+                let jsonData = try! JSONEncoder().encode(model.getAllTeams())
+                
+                let message: String = "Careful, this will overwrite the current database on the server."
+                let title: String = "Update Server Database"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction.init(title: "Yes", style: UIAlertAction.Style.default, handler: {[weak self](action) in alert.dismiss(animated: true, completion: nil)
+                    
+                    let jsonUpdateString = String(data: jsonData, encoding: .utf8)!
+                    
+                    print(jsonUpdateString)
+                    self?.model.send(msg: jsonUpdateString)
+                }))
+                alert.addAction(UIAlertAction.init(title: "No", style: UIAlertAction.Style.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                //model.send(msg: "")
+            }
+            else{
+                let message: String = "You do not have the authentication to export data."
+                let title: String = "Denied"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertAction.Style.default))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+        }
+        else{
+            let message: String = "You are not logged in, please log in."
+            let title: String = "Not Authenticated."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        let message: String = "Careful, this will overwrite the current database on the server."
-        let title: String = "Update Server Database"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction.init(title: "Yes", style: UIAlertAction.Style.default, handler: {[weak self](action) in alert.dismiss(animated: true, completion: nil)
-            
-            let jsonUpdateString = String(data: jsonData, encoding: .utf8)!
-            
-            print(jsonUpdateString)
-            self?.model.send(msg: jsonUpdateString)
-        }))
-        alert.addAction(UIAlertAction.init(title: "No", style: UIAlertAction.Style.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        //model.send(msg: "")
     }
     @objc func importTapped(){
-        let message: String = "Would you like to import data from json?"
-        let title: String = "Import Data"
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction.init(title: "Yes", style: UIAlertAction.Style.default, handler: {[weak self](action) in alert.dismiss(animated: true, completion: nil)
-            //print("Yes")
-            self!.model.importTeamsFromJson()
-            
-        }))
-        alert.addAction(UIAlertAction.init(title: "No", style: UIAlertAction.Style.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
+        let defaults = UserDefaults.standard
+        if let auth = defaults.object(forKey: "Auth") as? Int {
+            //is authenticated
+            if auth == 2 || auth == 1{
+                let message: String = "Would you like to import data from json?"
+                let title: String = "Import Data"
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction.init(title: "Yes", style: UIAlertAction.Style.default, handler: {[weak self](action) in alert.dismiss(animated: true, completion: nil)
+                    //print("Yes")
+                    self!.model.importTeamsFromJson()
+                    
+                }))
+                alert.addAction(UIAlertAction.init(title: "No", style: UIAlertAction.Style.default, handler: {(action) in alert.dismiss(animated: true, completion: nil)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            else{
+                let message: String = "You are not logged in, please log in."
+                let title: String = "Not Authenticated."
+                let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertAction.Style.default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        else{
+            let message: String = "You are not logged in, please log in."
+            let title: String = "Not Authenticated."
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertAction.Style.default))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -92,6 +139,9 @@ extension TeamListViewController{
             teamViewController.setup(model: teamModel)
         }
         else {
+            if let updateVC = segue.destination as? TeamUpdateViewController {
+                updateVC.delegate = self
+            }
 //            guard let playerCreationViewController = segue.destination as? PlayerCreationViewController else {return}
 //            guard let teams = sender as? [(Int, String)] else {return}
 //    
@@ -155,4 +205,16 @@ extension TeamListViewController: AllPlayersViewControllerDelegate {
 
         tableView.reloadData()
     }
+}
+extension TeamListViewController: TeamUpdateDelegate{
+    func submit(name: String, logo: String) {
+        //update persistance
+        model.save(teamToSave: Team(id: UUID(), logo: logo, teamName: name, roster: [], wins: 0, losses: 0))
+        //pull back from persistance
+        delegate?.teamAdded()
+        
+        tableView.reloadData()
+    }
+    
+    
 }

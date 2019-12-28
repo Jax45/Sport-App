@@ -8,10 +8,30 @@ class ChatService {
   private var room: ScaledroneRoom?
   
   init(member: Member, onRecievedMessage: @escaping (Message)-> Void) {
+    let defaults = UserDefaults.standard
+    
     self.messageCallback = onRecievedMessage
-    self.scaledrone = Scaledrone(
-      channelID: "Paak7Nu9EAqSdL89",
-      data: member.toJSON)
+    
+    
+    if let auth = defaults.object(forKey: "Auth") as? Int {
+        if auth == 1 || auth == 2{
+            //Auth full
+            self.scaledrone = Scaledrone(
+              channelID: "Paak7Nu9EAqSdL89",
+              data: member.toJSON)
+            
+        }
+        else{
+            self.scaledrone = Scaledrone(
+              channelID: "drfKnVvI6vxzNlRC",
+              data: member.toJSON)
+        }
+    }
+    else{
+        self.scaledrone = Scaledrone(
+        channelID: "drfKnVvI6vxzNlRC",
+        data: member.toJSON)
+    }
     scaledrone.delegate = self
   }
   

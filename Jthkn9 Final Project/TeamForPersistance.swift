@@ -8,7 +8,7 @@
 
 import Foundation
 struct TeamForPersistance: Codable{
-    let id: Int
+    let id: UUID
     var logo: String
     var teamName: String
     var roster: [UUID]

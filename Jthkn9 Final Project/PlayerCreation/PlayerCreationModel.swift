@@ -14,11 +14,11 @@ protocol PlayerCreationDelegate: class {
 
 final class PlayerCreationModel {
     //key is the TeamId, and value is the name of the team.
-    private(set) var teams: [(Int, String)]
+    private(set) var teams: [(UUID, String)]
     
     private weak var delegate: PlayerCreationDelegate?
     
-    init(teams: [(Int, String)], delegate: PlayerCreationDelegate?) {
+    init(teams: [(UUID, String)], delegate: PlayerCreationDelegate?) {
         //self.player = player
         self.delegate = delegate
         self.teams = teams
@@ -44,13 +44,13 @@ extension PlayerCreationModel {
             return false
         }
         //now check that it is a valid team name
-        if getTeamId(with: team) == -1{
+        if getTeamId(with: team) == nil{
             return false
         }
         return true
     }
     
-    func savePlayer(first: String, last: String, teamId: Int) {
+    func savePlayer(first: String, last: String, teamId: UUID) {
         let player = Player(playerId: UUID(), teamId: teamId, name: "\(first) \(last)", seasons: [])
         delegate?.save(player: player)
     }
@@ -63,8 +63,8 @@ extension PlayerCreationModel {
         return teams.count
     }
     
-    func getTeamId(with name: String) -> Int{
-        return teams.first { $0.1 == name}?.0 ?? -1
+    func getTeamId(with name: String) -> UUID?{
+        return teams.first { $0.1 == name}?.0
     }
     
     func getTeamNames() -> [String] {

@@ -44,6 +44,9 @@ final class AppPersistence: FileStoragePersistence, AppPersistenceInterface {
     func savePlayer(player: PlayerForPersistance) {
         save(object: player, withId: "player\(player.id)")
     }
+   // func addTeam(team: Team){
+        
+  //  }
     func addPlayerToTeam(player: PlayerForPersistance) {
         guard let teamData = read(fileWithId: "team\(player.teamId)") else {return}
         var teamfromPersistance = try? JSONDecoder().decode(TeamForPersistance.self, from: teamData)

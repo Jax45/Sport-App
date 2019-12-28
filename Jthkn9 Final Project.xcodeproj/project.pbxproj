@@ -23,6 +23,10 @@
 		4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A333239F0CD6009B7EC5 /* NewsViewController.swift */; };
 		4469A336239F12BB009B7EC5 /* NewsStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A335239F12BB009B7EC5 /* NewsStory.swift */; };
 		4469A338239F134C009B7EC5 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A337239F134C009B7EC5 /* NewsModel.swift */; };
+		448D276323B6C71300C96BE4 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D276223B6C71300C96BE4 /* AuthViewController.swift */; };
+		448D276523B6C73100C96BE4 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448D276423B6C73100C96BE4 /* Auth.storyboard */; };
+		448D276823B6CEB200C96BE4 /* TeamUpdate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 448D276723B6CEB200C96BE4 /* TeamUpdate.storyboard */; };
+		448D276A23B6CED600C96BE4 /* TeamUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448D276923B6CED600C96BE4 /* TeamUpdateViewController.swift */; };
 		44A2E6AA23A2D70C00EDA699 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6A923A2D70C00EDA699 /* ProfileView.swift */; };
 		44A2E6AC23A2D9C100EDA699 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6AB23A2D9C100EDA699 /* IconView.swift */; };
 		44A2E6AE23A2DA3200EDA699 /* IconLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A2E6AD23A2DA3200EDA699 /* IconLayer.swift */; };
@@ -102,6 +106,10 @@
 		4469A333239F0CD6009B7EC5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		4469A335239F12BB009B7EC5 /* NewsStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStory.swift; sourceTree = "<group>"; };
 		4469A337239F134C009B7EC5 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		448D276223B6C71300C96BE4 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		448D276423B6C73100C96BE4 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		448D276723B6CEB200C96BE4 /* TeamUpdate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamUpdate.storyboard; sourceTree = "<group>"; };
+		448D276923B6CED600C96BE4 /* TeamUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamUpdateViewController.swift; sourceTree = "<group>"; };
 		44A2E6A923A2D70C00EDA699 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		44A2E6AB23A2D9C100EDA699 /* IconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		44A2E6AD23A2DA3200EDA699 /* IconLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLayer.swift; sourceTree = "<group>"; };
@@ -207,6 +215,24 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		448D276123B6C6F000C96BE4 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				448D276223B6C71300C96BE4 /* AuthViewController.swift */,
+				448D276423B6C73100C96BE4 /* Auth.storyboard */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		448D276623B6CE9000C96BE4 /* TeamCreation */ = {
+			isa = PBXGroup;
+			children = (
+				448D276723B6CEB200C96BE4 /* TeamUpdate.storyboard */,
+				448D276923B6CED600C96BE4 /* TeamUpdateViewController.swift */,
+			);
+			path = TeamCreation;
+			sourceTree = "<group>";
+		};
 		44DA18BB23A06F110037D716 /* Seasons */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +334,7 @@
 		9E7273CF22F9264E0054674F /* Workflow */ = {
 			isa = PBXGroup;
 			children = (
+				448D276123B6C6F000C96BE4 /* Authentication */,
 				4469A32C239F0897009B7EC5 /* News */,
 				443937C1239AC5AB00C2A8C5 /* Messaging */,
 				7AEF017B22F475C800511752 /* TabBar */,
@@ -320,6 +347,7 @@
 		9E7273D022F926560054674F /* Team */ = {
 			isa = PBXGroup;
 			children = (
+				448D276623B6CE9000C96BE4 /* TeamCreation */,
 				9EE012D222E9237900C69F8F /* TeamList */,
 				9EE012D322E923A000C69F8F /* TeamView */,
 			);
@@ -512,11 +540,13 @@
 				44DA18BD23A06F3A0037D716 /* Season.storyboard in Resources */,
 				9EE012D522E923CA00C69F8F /* Team.storyboard in Resources */,
 				9ED40C2022F2522000F1720D /* ReadMe in Resources */,
+				448D276823B6CEB200C96BE4 /* TeamUpdate.storyboard in Resources */,
 				443937CE239AD0B000C2A8C5 /* Default-568h@2x.png in Resources */,
 				7AE41C9922E364AC00AB09EC /* Assets.xcassets in Resources */,
 				4469A32E239F08B3009B7EC5 /* News.storyboard in Resources */,
 				443937C5239AC60E00C2A8C5 /* Message.storyboard in Resources */,
 				7AEF017D22F475E100511752 /* TabBar.storyboard in Resources */,
+				448D276523B6C73100C96BE4 /* Auth.storyboard in Resources */,
 				7AE7296F22EAB21700FC0D61 /* AllPlayers.storyboard in Resources */,
 				7AF0B67422F3C3E400FFF10B /* PlayerView.storyboard in Resources */,
 				7AE41C9722E364A700AB09EC /* TeamList.storyboard in Resources */,
@@ -590,6 +620,7 @@
 				7AE41CC822E5072900AB09EC /* TeamListViewController.swift in Sources */,
 				44A2E6AA23A2D70C00EDA699 /* ProfileView.swift in Sources */,
 				7AE41C9222E364A700AB09EC /* AppDelegate.swift in Sources */,
+				448D276A23B6CED600C96BE4 /* TeamUpdateViewController.swift in Sources */,
 				9ECC9BFE22EFD63800990065 /* FileStoragePersistence.swift in Sources */,
 				7A9F201D22E7F2010057E326 /* Seasons.swift in Sources */,
 				44DA18C323A070CB0037D716 /* SeasonViewController.swift in Sources */,
@@ -624,6 +655,7 @@
 				9ECC9C2C22EFDC2B00990065 /* Log.swift in Sources */,
 				444F6D8B239B0D090045C96D /* ChatService.swift in Sources */,
 				7AEF017F22F4760300511752 /* TabBarViewController.swift in Sources */,
+				448D276323B6C71300C96BE4 /* AuthViewController.swift in Sources */,
 				44544DDC23A1643C00217C7C /* FilterPlayersViewController.swift in Sources */,
 				9EE012D722E9292E00C69F8F /* TeamViewController.swift in Sources */,
 				4469A330239F0970009B7EC5 /* NewsCollectionViewCell.swift in Sources */,
