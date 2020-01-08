@@ -11,7 +11,7 @@
         <scene sceneID="HbT-Ir-O4G">
             <objects>
                 <navigationController id="CR4-Nu-65u" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Log In" selectedImage="lock" catalog="system" id="vrC-vZ-Xa1"/>
+                    <tabBarItem key="tabBarItem" title="Log In" image="lock" catalog="system" selectedImage="lock" id="vrC-vZ-Xa1"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dfh-95-r6r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

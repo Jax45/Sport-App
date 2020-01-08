@@ -186,10 +186,21 @@ extension TeamListModel {
             //if this is true we know we will find the index. hence we can bang
             let existingIndex = teams.firstIndex(where: {return $0.id == teamToSave.id})
             teams[existingIndex!].self = teamToSave
+            var rosterIds: [UUID] = []
+            for player in teamToSave.roster{
+                rosterIds.append(player.playerId)
+            }
+            
+            persistence?.saveTeam(team: TeamForPersistance(id: teamToSave.id, logo: teamToSave.logo, teamName: teamToSave.teamName, roster: rosterIds, wins: teamToSave.wins, losses: teamToSave.losses))
         }
         else{
             teams.append(teamToSave)
             persistence?.saveTeam(team: TeamForPersistance(id: teamToSave.id, logo: teamToSave.logo, teamName: teamToSave.teamName, roster: [], wins: teamToSave.wins, losses: teamToSave.losses))
         }
+    }
+    func deleteTeam(atRow: Int){
+        let team = teams[atRow]
+        persistence?.deleteTeam(team: TeamForPersistance(id: team.id, logo: team.logo, teamName: team.teamName, roster: [], wins: team.wins, losses: team.losses))
+        teams.remove(at: atRow)
     }
 }

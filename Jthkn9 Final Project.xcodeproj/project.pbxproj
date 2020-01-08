@@ -18,6 +18,7 @@
 		444F6D8D239B43040045C96D /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F6D8C239B43040045C96D /* TeamService.swift */; };
 		4451B2BE23A224EC001007D4 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4451B2BD23A224EC001007D4 /* UserProfile.swift */; };
 		44544DDC23A1643C00217C7C /* FilterPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44544DDB23A1643C00217C7C /* FilterPlayersViewController.swift */; };
+		445C1B1723C68F5700D2127F /* ChangeTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C1B1623C68F5700D2127F /* ChangeTeamViewController.swift */; };
 		4469A32E239F08B3009B7EC5 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4469A32D239F08B3009B7EC5 /* News.storyboard */; };
 		4469A330239F0970009B7EC5 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A32F239F0970009B7EC5 /* NewsCollectionViewCell.swift */; };
 		4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4469A333239F0CD6009B7EC5 /* NewsViewController.swift */; };
@@ -101,6 +102,7 @@
 		444F6D8C239B43040045C96D /* TeamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
 		4451B2BD23A224EC001007D4 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		44544DDB23A1643C00217C7C /* FilterPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPlayersViewController.swift; sourceTree = "<group>"; };
+		445C1B1623C68F5700D2127F /* ChangeTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamViewController.swift; sourceTree = "<group>"; };
 		4469A32D239F08B3009B7EC5 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		4469A32F239F0970009B7EC5 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		4469A333239F0CD6009B7EC5 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				44DA18C023A06F660037D716 /* PlayerSelectModel.swift */,
 				7AF0B67322F3C3E400FFF10B /* PlayerView.storyboard */,
 				7AF0B67522F3CB8D00FFF10B /* PlayerViewController.swift */,
+				445C1B1623C68F5700D2127F /* ChangeTeamViewController.swift */,
 			);
 			name = PlayerView;
 			path = ../../PlayerView;
@@ -641,6 +644,7 @@
 				44A2E6AE23A2DA3200EDA699 /* IconLayer.swift in Sources */,
 				443937D2239ADCB400C2A8C5 /* ProfileViewController.swift in Sources */,
 				7A9F201822E7F1760057E326 /* finalDataGet.swift in Sources */,
+				445C1B1723C68F5700D2127F /* ChangeTeamViewController.swift in Sources */,
 				4469A334239F0CD6009B7EC5 /* NewsViewController.swift in Sources */,
 				4451B2BE23A224EC001007D4 /* UserProfile.swift in Sources */,
 				9EE15D5C22E94410002210AC /* TeamModel.swift in Sources */,

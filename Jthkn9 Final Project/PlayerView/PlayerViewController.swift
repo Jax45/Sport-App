@@ -8,6 +8,10 @@
 import UIKit
 import Foundation
 
+protocol ChangeTeamDelegate: class {
+    func teamChanged(teamId: UUID)
+}
+
 protocol PlayerViewControllerDelegate: class {
     func delete(player: Player)
     func updatePlayer(new: Player,old: Player)
@@ -24,6 +28,7 @@ final class PlayerViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     //private var player: Player!
     
     weak var delegate: PlayerViewControllerDelegate?
@@ -35,6 +40,7 @@ final class PlayerViewController: UIViewController {
         super.viewDidLoad()
         
         NameLabel.text = model.getPlayer().name
+       // TeamName.text = model.getTeamName(atRow: 0)
     }
     
     @IBAction func AddPressed(_ sender: Any) {
@@ -46,23 +52,28 @@ final class PlayerViewController: UIViewController {
     
     //prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let VC = segue.destination as! SeasonViewController
-        if let send = sender as? Seasons{
-            VC.setup(seasons: send, delegate: self)
+        if let VC = segue.destination as? SeasonViewController{
+            if let send = sender as? Seasons{
+                VC.setup(seasons: send, delegate: self)
+            }
+            else{
+                VC.setup(currentYears: sender as! [Int], delegate: self)
+            }
         }
-        else{
-            VC.setup(currentYears: sender as! [Int], delegate: self)
+        else if let VC = segue.destination as? ChangeTeamViewController{
+            VC.setup(del: self, model: self.model)
         }
     }
     
 }
 
 
+
 extension PlayerViewController {
-    func setup(player: Player, delegate: PlayerViewControllerDelegate){
+    func setup(player: Player, delegate: PlayerViewControllerDelegate,teams: [(UUID, String)]){
         //model.setPlayer(player: player)
         self.delegate = delegate
-        model = PlayerSelectModel(player: player)
+        model = PlayerSelectModel(player: player,teams: teams)
     }
 }
 extension PlayerViewController: UITableViewDelegate, UITableViewDataSource{
@@ -99,6 +110,19 @@ extension PlayerViewController: SeasonViewControllerDelegate{
         model.addSeason(season: season)
         //add the player data to persistance
         delegate?.updatePlayer(new: model.getPlayer(), old: old)
+        tableView.reloadData()
+    }
+    
+    
+}
+
+extension PlayerViewController: ChangeTeamDelegate {
+    func teamChanged(teamId: UUID) {
+        var updatedPlayer = model.getPlayer()
+        updatedPlayer.teamId = teamId
+        print(teamId)
+        print(model.getPlayer().teamId)
+        delegate?.updatePlayer(new: updatedPlayer, old: model.getPlayer())
         tableView.reloadData()
     }
     

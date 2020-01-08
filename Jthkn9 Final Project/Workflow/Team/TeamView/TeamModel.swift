@@ -24,6 +24,18 @@ final class TeamModel {
     func getLogoName() -> String {
         return team.logo
     }
+    func getLosses() -> String {
+        return "\(team.losses)"
+    }
+    func getWins() -> String {
+        return "\(team.wins)"
+    }
+    func getUUID() -> UUID {
+        return team.id
+    }
+    func getRoster() -> [Player] {
+        return team.roster
+    }
     
 }
 

@@ -65,10 +65,13 @@ final class AppPersistence: FileStoragePersistence, AppPersistenceInterface {
         
         //delete team reference
         guard let teamData = read(fileWithId: "team\(player.teamId)") else {return}
+        print(player.teamId)
+        
         var teamfromPersistance = try? JSONDecoder().decode(TeamForPersistance.self, from: teamData)
+        
         //add the value to roster
         teamfromPersistance?.roster.removeAll(where: {$0 == player.id})
-        
+        save(object: teamfromPersistance, withId: "team\(teamfromPersistance!.id)")
     }
     
     func deleteAllData() {

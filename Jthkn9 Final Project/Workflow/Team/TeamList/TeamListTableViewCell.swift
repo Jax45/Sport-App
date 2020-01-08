@@ -17,7 +17,7 @@ final class TeamListTableViewCell: UITableViewCell {
     func setup(with team: Team) {
         self.team = team
         nameLabel.text = team.teamName
-        logo.image = UIImage(named: team.logo) ?? UIImage(named: "Dino")
+        logo.image = UIImage(named: team.logo) ?? UIImage(named: "NWA")
         recordLabel.text = "\(team.wins)-\(team.losses)"
         print(team.logo)
         

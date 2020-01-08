@@ -9,8 +9,10 @@
 import Foundation
 class PlayerSelectModel {
     private var player: Player
-    init(player: Player) {
+    private var teams:  [(UUID, String)] 
+    init(player: Player,teams:  [(UUID, String)]) {
         self.player = player
+        self.teams = teams
     }
     func addSeason(season: Seasons){
         player.seasons.append(season)
@@ -30,6 +32,15 @@ class PlayerSelectModel {
     }
     func getSeason(index: Int) -> Seasons {
         return player.seasons[index]
+    }
+    func getTeam(name: String) -> UUID? {
+        return teams.first { $0.1 == name}?.0
+    }
+    func getTeamCount() -> Int {
+        return teams.count
+    }
+    func getTeamName(atRow: Int) -> String {
+        return teams[atRow].1
     }
     func getYears() ->[Int]{
         var years: [Int] = []

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u8D-2E-NX7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u8D-2E-NX7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,22 +21,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDU-M4-Ude">
-                                <rect key="frame" x="0.0" y="91.5" width="414" height="30"/>
-                                <state key="normal" title="Add Season"/>
-                                <connections>
-                                    <action selector="AddPressed:" destination="u8D-2E-NX7" eventType="touchUpInside" id="cNf-oX-rd4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvY-lb-GgX">
-                                <rect key="frame" x="0.0" y="121.5" width="414" height="30"/>
-                                <state key="normal" title="Delete Player"/>
-                                <connections>
-                                    <action selector="DeleteButton:" destination="u8D-2E-NX7" eventType="touchUpInside" id="1I0-eM-6Xu"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dj1-q5-xQI">
-                                <rect key="frame" x="0.0" y="171.5" width="414" height="690.5"/>
+                                <rect key="frame" x="0.0" y="151.5" width="414" height="710.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SeasonCell" rowHeight="91" id="Z8v-ws-yCV" customClass="PlayerTableViewCell" customModule="Jthkn9_Final_Project" customModuleProvider="target">
@@ -184,20 +169,47 @@
                                     <outlet property="delegate" destination="u8D-2E-NX7" id="6mI-jU-aue"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWM-ar-Bfu">
+                                <rect key="frame" x="0.0" y="106.5" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDU-M4-Ude">
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Add Season"/>
+                                        <connections>
+                                            <action selector="AddPressed:" destination="u8D-2E-NX7" eventType="touchUpInside" id="cNf-oX-rd4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvp-62-vc4">
+                                        <rect key="frame" x="138" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Change Team"/>
+                                        <connections>
+                                            <segue destination="RY6-Bv-fei" kind="presentation" id="YK2-PA-6hy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvY-lb-GgX">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="30"/>
+                                        <state key="normal" title="Delete Player"/>
+                                        <connections>
+                                            <action selector="DeleteButton:" destination="u8D-2E-NX7" eventType="touchUpInside" id="1I0-eM-6Xu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mvp-62-vc4" firstAttribute="width" secondItem="qDU-M4-Ude" secondAttribute="width" id="Am9-Nm-KFc"/>
+                                    <constraint firstItem="qDU-M4-Ude" firstAttribute="width" secondItem="vvY-lb-GgX" secondAttribute="width" id="Rle-2Z-ZEb"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="top" secondItem="vvY-lb-GgX" secondAttribute="bottom" constant="20" id="1qD-98-w3o"/>
+                            <constraint firstItem="mWM-ar-Bfu" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="6TW-mo-3Ra"/>
                             <constraint firstItem="JJw-no-6Hb" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="6Wi-sj-9uK"/>
                             <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="JJw-no-6Hb" secondAttribute="trailing" id="6ac-7t-Ut1"/>
-                            <constraint firstItem="qDU-M4-Ude" firstAttribute="top" secondItem="JJw-no-6Hb" secondAttribute="bottom" id="OQL-E0-Wgu"/>
-                            <constraint firstItem="vvY-lb-GgX" firstAttribute="top" secondItem="qDU-M4-Ude" secondAttribute="bottom" id="TO7-Zs-XHG"/>
-                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="qDU-M4-Ude" secondAttribute="trailing" id="UVx-C9-Bju"/>
-                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="vvY-lb-GgX" secondAttribute="trailing" id="XdU-dB-wlT"/>
+                            <constraint firstItem="9rc-xw-m80" firstAttribute="trailing" secondItem="mWM-ar-Bfu" secondAttribute="trailing" id="X8h-6g-oK0"/>
+                            <constraint firstItem="Dj1-q5-xQI" firstAttribute="top" secondItem="mWM-ar-Bfu" secondAttribute="bottom" constant="15" id="gbz-TW-ee2"/>
                             <constraint firstItem="Dj1-q5-xQI" firstAttribute="trailing" secondItem="9rc-xw-m80" secondAttribute="trailing" id="hIJ-B0-b60"/>
-                            <constraint firstItem="qDU-M4-Ude" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="kVh-oc-CAc"/>
                             <constraint firstItem="Dj1-q5-xQI" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="m5N-7M-ctG"/>
-                            <constraint firstItem="vvY-lb-GgX" firstAttribute="leading" secondItem="9rc-xw-m80" secondAttribute="leading" id="qRF-hQ-hoU"/>
+                            <constraint firstItem="mWM-ar-Bfu" firstAttribute="top" secondItem="JJw-no-6Hb" secondAttribute="bottom" constant="15" id="qGT-ZV-Naf"/>
                             <constraint firstItem="Dj1-q5-xQI" firstAttribute="bottom" secondItem="9rc-xw-m80" secondAttribute="bottom" id="vNF-Ic-9pU"/>
                             <constraint firstItem="JJw-no-6Hb" firstAttribute="top" secondItem="9rc-xw-m80" secondAttribute="top" constant="20" id="y23-Il-2UQ"/>
                         </constraints>
@@ -212,6 +224,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1v-8R-GiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="84" y="46.326836581709152"/>
+        </scene>
+        <!--Change Team View Controller-->
+        <scene sceneID="C0k-67-btt">
+            <objects>
+                <viewController id="RY6-Bv-fei" customClass="ChangeTeamViewController" customModule="Jthkn9_Final_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HJL-Gr-iwj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-ga-wxl">
+                                <rect key="frame" x="47" y="90" width="320" height="250"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick A Team" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4oB-OJ-Ghm" userLabel="Team Name">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yi2-kN-gRM">
+                                        <rect key="frame" x="0.0" y="34" width="320" height="216"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="dataSource" destination="RY6-Bv-fei" id="SEk-rG-lVZ"/>
+                                            <outlet property="delegate" destination="RY6-Bv-fei" id="jNl-o8-ZzQ"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Lc-k1-CBO">
+                                <rect key="frame" x="138.5" y="40" width="137" height="10"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XG-84-vZw">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="10"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="ChangedTeamPressed:" destination="RY6-Bv-fei" eventType="touchUpInside" id="Jz2-a8-8bI"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yRb-kN-a01">
+                                        <rect key="frame" x="49" y="0.0" width="40" height="10"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="duq-8m-1Dr"/>
+                                            <constraint firstAttribute="height" constant="10" id="wDw-Fm-ouP"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9O7-12-EyC">
+                                        <rect key="frame" x="89" y="0.0" width="48" height="10"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="CancelChangeTeam:" destination="RY6-Bv-fei" eventType="touchUpInside" id="6g2-Du-Rxm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gyq-ga-wxl" firstAttribute="top" secondItem="4Lc-k1-CBO" secondAttribute="bottom" constant="40" id="Btd-5p-4ur"/>
+                            <constraint firstItem="4Lc-k1-CBO" firstAttribute="centerX" secondItem="HJL-Gr-iwj" secondAttribute="centerX" id="QpH-PK-4cs"/>
+                            <constraint firstItem="gyq-ga-wxl" firstAttribute="centerX" secondItem="HJL-Gr-iwj" secondAttribute="centerX" id="lQW-at-fEp"/>
+                            <constraint firstItem="4Lc-k1-CBO" firstAttribute="top" secondItem="jni-IV-1Gd" secondAttribute="top" constant="40" id="t57-B6-SKz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jni-IV-1Gd"/>
+                    </view>
+                    <connections>
+                        <outlet property="TeamName" destination="4oB-OJ-Ghm" id="u9A-vC-aMI"/>
+                        <outlet property="TeamPicker" destination="Yi2-kN-gRM" id="mZp-MV-n7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvU-kx-6Y4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="-47"/>
         </scene>
         <!--Season-->
         <scene sceneID="I1R-yK-dSO">

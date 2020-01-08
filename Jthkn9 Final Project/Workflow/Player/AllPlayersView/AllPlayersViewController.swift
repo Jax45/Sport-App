@@ -42,7 +42,7 @@ extension AllPlayersViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let playerViewController = segue.destination as? PlayerViewController {
             let player: Player = (sender as? Player)!
-            playerViewController.setup(player: player, delegate: self)
+            playerViewController.setup(player: player, delegate: self, teams: model.getTeamTupleArray())
         }
         else if let createVC = segue.destination as? PlayerCreationViewController {
             let playerModel = PlayerCreationModel(teams: model.getTeamTupleArray(), delegate: self)

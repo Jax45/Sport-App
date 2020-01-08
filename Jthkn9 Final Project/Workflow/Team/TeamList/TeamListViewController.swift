@@ -1,6 +1,10 @@
 import UIKit
 import Foundation
 
+protocol TeamViewEditDelegate {
+    func update(team: Team)
+}
+
 protocol TeamListViewControllerDelegate: class {
     func teamAdded()
     func dataImported()
@@ -130,13 +134,14 @@ extension TeamListViewController{
             alert.addAction(UIAlertAction.init(title: "Ok", style: UIAlertAction.Style.default))
             self.present(alert, animated: true, completion: nil)
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let teamViewController = segue.destination as? TeamViewController {
             guard let team = sender as? Team else {return}
             let teamModel = TeamModel(team: team)
-            teamViewController.setup(model: teamModel)
+            teamViewController.setup(model: teamModel, delegate: self)
         }
         else {
             if let updateVC = segue.destination as? TeamUpdateViewController {
@@ -182,6 +187,18 @@ extension TeamListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            model.deleteTeam(atRow: indexPath.row)
+            delegate?.dataImported()
+            tableView.reloadData()
+            
+        }
+    }
 }
 
 extension TeamListViewController: UITableViewDelegate {
@@ -213,6 +230,16 @@ extension TeamListViewController: TeamUpdateDelegate{
         //pull back from persistance
         delegate?.teamAdded()
         
+        tableView.reloadData()
+    }
+    
+    
+}
+
+extension TeamListViewController: TeamViewEditDelegate{
+    func update(team: Team) {
+        model.save(teamToSave: team)
+        delegate?.dataImported()
         tableView.reloadData()
     }
     
