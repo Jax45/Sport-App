@@ -65,7 +65,7 @@ extension PlayerCreationViewController: UIPickerViewDataSource {
 extension PlayerCreationViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        textField.resignFirstResponder()
         return true
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeasonViewController: UIViewController {
+class SeasonViewController: UIViewController, UITextFieldDelegate {
     private var delegate: SeasonViewControllerDelegate!
     //private var years: [Int] = []
     private var model: SeasonModel!
@@ -33,7 +33,18 @@ class SeasonViewController: UIViewController {
         RunsLabel.text = "\(seasons.runs)"
         RBILabel.text = "\(seasons.rBIS)"
         WalksLabel.text = "\(seasons.walks)"
+        YearLabel.delegate = self
+        HitsLabel.delegate = self
+        AtBatsLabel.delegate = self
+        RunsLabel.delegate = self
+        RBILabel.delegate = self
+        WalksLabel.delegate = self
+        
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     func setup(seasons: Seasons,delegate: SeasonViewControllerDelegate){
         self.delegate = delegate

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamUpdateViewController: UIViewController {
+class TeamUpdateViewController: UIViewController, UITextFieldDelegate{
 
     var delegate: TeamUpdateDelegate!
     @IBOutlet weak var NameField: UITextField!
@@ -16,8 +16,13 @@ class TeamUpdateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.NameField.delegate = self
+        self.LogoField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
  
     @IBAction func SubmitPressed(_ sender: Any) {
@@ -26,3 +31,4 @@ class TeamUpdateViewController: UIViewController {
     }
     
 }
+
